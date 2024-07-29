@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="form"><form action="{{ url_for("home") }}" method="post">
+        <input type="text" name="city_name" id="" placeholder="City Name" value="{{ city_name }}">
+        <input type="text" name="country_code" id="" placeholder="Country Code" value="{{country_code }}">
+        <button type="submit">Find</button>
+    </form></div>
+
+<div class="data_table">
+    {% if Weather_data %}
+    <table>
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Country</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>Pressure</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="bg-success">{{ weather_data.sys.country }}</td>
+                        <td class="bg-info">{{ weather_data.coord.lon }} {{ weather_datadata.coord.lat }}</td>
+                        <td class="bg-danger">{{ weather_data.temp }} k</td>
+                        <td class="bg-warning">{ {weather_data.pressure }}</td>
+                        <td class="bg-primary">{{ weather_data.humidity }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+    {% endif %}
+</div>
+</body>
+</html>
